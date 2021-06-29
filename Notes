@@ -1,0 +1,11 @@
+Feature:
+  wie lange seit Kontaktschleife
+  # trigger in letzten x Sek
+  Uhrzeit abhängig
+  Rückstausensor
+
+Performence + Komplexität von Individuel beachten
+ZUerst mal nur eine Situation
+Dann zb mehrere Uhrzeiten Simulieren
+
+Standards wie zb min_grün, min_Ziet_bis_grün_für_Fußgänger recherchieren
