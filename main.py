@@ -20,5 +20,5 @@ if __name__ == '__main__':
                           max_depart_delay=0)
     env.reset()
     print("Step1:")
-    print(env.step(3.))
+    print(env.step(3))
 
