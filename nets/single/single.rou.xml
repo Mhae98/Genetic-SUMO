@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2021-07-13 09:56:58 by Eclipse SUMO netedit Version 1.9.2
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <sumo-net-file value="/home/martin/PycharmProjects/Genetic-SUMO/single.net.xml"/>
+    </input>
+
+    <output>
+        <output-file value="/home/martin/PycharmProjects/Genetic-SUMO/single.net.xml"/>
+    </output>
+
+    <processing>
+        <geometry.min-radius.fix.railways value="false"/>
+        <geometry.max-grade.fix value="false"/>
+        <offset.disable-normalization value="true"/>
+        <lefthand value="false"/>
+    </processing>
+
+    <junctions>
+        <no-turnarounds value="true"/>
+        <junctions.corner-detail value="0"/>
+        <junctions.limit-turn-speed value="-1"/>
+        <rectangular-lane-cut value="false"/>
+    </junctions>
+
+    <pedestrian>
+        <walkingareas value="false"/>
+    </pedestrian>
+
+    <netedit>
+        <additional-files value="/home/martin/PycharmProjects/Genetic-SUMO/single.det.xml"/>
+        <route-files value="/home/martin/PycharmProjects/Genetic-SUMO/single.rou.xml"/>
+    </netedit>
+
+    <report>
+        <aggregate-warnings value="5"/>
+    </report>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <flow id="flow_0" begin="0.00" from="w_t" to="t_s" end="3600.00" number="1800"/>
+    <flow id="flow_1" begin="0.00" from="w_t" to="t_e" end="3600.00" number="1800"/>
+    <flow id="flow_2" begin="0.00" from="n_t" to="t_w" end="3600.00" number="1800"/>
+    <flow id="flow_3" begin="0.00" from="n_t" to="t_s" end="3600.00" number="1800"/>
+    <flow id="flow_4" begin="0.00" from="e_t" to="t_w" end="3600.00" number="1800"/>
+    <flow id="flow_5" begin="0.00" from="e_t" to="t_n" end="3600.00" number="1800"/>
+    <flow id="flow_6" begin="0.00" from="s_t" to="t_e" end="3600.00" number="1800"/>
+    <flow id="flow_7" begin="0.00" from="s_t" to="t_n" end="3600.00" number="1800"/>
+</routes>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+    <input>
+        <net-file value="single.net.xml"/>
+        <route-files value="single.rou.xml"/>
+        <additional-files value="single.det.xml"/>
+    </input>
+	<time>
+        <begin value="0"/>
+        <end value="260000"/>
+    </time>
+</configuration>
