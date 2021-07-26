@@ -41,12 +41,12 @@
 -->
 
 <additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
-    <e1Detector id="e1Detector_e_t_0_6" lane="e_t_0" pos="137.15" freq="900.00" file="out.xml"/>
-    <e1Detector id="e1Detector_e_t_1_7" lane="e_t_1" pos="137.08" freq="900.00" file="out.xml"/>
-    <e1Detector id="e1Detector_n_t_0_9" lane="n_t_0" pos="136.99" freq="900.00" file="out.xml"/>
-    <e1Detector id="e1Detector_n_t_1_8" lane="n_t_1" pos="136.98" freq="900.00" file="out.xml"/>
-    <e1Detector id="e1Detector_s_t_0_5" lane="s_t_0" pos="137.06" freq="900.00" file="out.xml"/>
-    <e1Detector id="e1Detector_s_t_1_4" lane="s_t_1" pos="137.06" freq="900.00" file="out.xml"/>
-    <e1Detector id="e1Detector_w_t_0_0" lane="w_t_0" pos="137.02" freq="900.00" file="out.xml"/>
-    <e1Detector id="e1Detector_w_t_1_1" lane="w_t_1" pos="137.02" freq="900.00" file="out.xml"/>
+    <e1Detector id="e1Detector_e_t_0_6" lane="e_t_0" pos="107.15" freq="900.00" file="out.xml"/>
+    <e1Detector id="e1Detector_e_t_1_7" lane="e_t_1" pos="107.08" freq="900.00" file="out.xml"/>
+    <e1Detector id="e1Detector_n_t_0_9" lane="n_t_0" pos="106.99" freq="900.00" file="out.xml"/>
+    <e1Detector id="e1Detector_n_t_1_8" lane="n_t_1" pos="106.98" freq="900.00" file="out.xml"/>
+    <e1Detector id="e1Detector_s_t_0_5" lane="s_t_0" pos="107.06" freq="900.00" file="out.xml"/>
+    <e1Detector id="e1Detector_s_t_1_4" lane="s_t_1" pos="107.06" freq="900.00" file="out.xml"/>
+    <e1Detector id="e1Detector_w_t_0_0" lane="w_t_0" pos="107.02" freq="900.00" file="out.xml"/>
+    <e1Detector id="e1Detector_w_t_1_1" lane="w_t_1" pos="107.02" freq="900.00" file="out.xml"/>
 </additional>
