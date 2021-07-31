@@ -11,7 +11,7 @@ from sumo_rl.util.gen_route import write_route_file
 
 if __name__ == '__main__':
     env = SumoEnvironment(net_file='nets/single/single.net.xml',
-                          route_file='nets/single/single.rou.xml',
+                          route_file='nets/single/randomTrips.rou.xml',
                           additional_file='nets/single/single.det.xml',
                           out_csv_name='a2c',
                           single_agent=True,
