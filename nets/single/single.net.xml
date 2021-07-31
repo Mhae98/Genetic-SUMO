@@ -123,13 +123,13 @@
     </edge>
 
     <tlLogic id="t" type="static" programID="0" offset="0">
-        <phase duration="33" state="GGrrrrGGrrrr"/>
+        <phase duration="5" state="GGrrrrGGrrrr"/>
         <phase duration="2"  state="yyrrrryyrrrr"/>
-        <phase duration="6"  state="rrGrrrrrGrrr"/>
+        <phase duration="5"  state="rrGrrrrrGrrr"/>
         <phase duration="2"  state="rryrrrrryrrr"/>
-        <phase duration="33" state="rrrGGrrrrGGr"/>
+        <phase duration="5" state="rrrGGrrrrGGr"/>
         <phase duration="2"  state="rrryyrrrryyr"/>
-        <phase duration="6"  state="rrrrrGrrrrrG"/>
+        <phase duration="5"  state="rrrrrGrrrrrG"/>
         <phase duration="2"  state="rrrrryrrrrry"/>
     </tlLogic>
 
