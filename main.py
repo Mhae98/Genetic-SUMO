@@ -7,6 +7,7 @@ if 'SUMO_HOME' in os.environ:
 else:
     sys.exit("Please declare the environment variable 'SUMO_HOME'")
 from sumo_rl import SumoEnvironment
+from stable_baselines3 import PPO
 
 
 def find_best_action(observation):
@@ -26,7 +27,7 @@ def find_best_action(observation):
     return vals.index(min(vals))
 
 
-if __name__ == '__main__':
+def simple_environment():
     env = SumoEnvironment(net_file='nets/single/single.net.xml',
                           route_file='nets/single/randomTrips.rou.xml',
                           additional_file='nets/single/single.det.xml',
@@ -36,10 +37,31 @@ if __name__ == '__main__':
                           num_seconds=100000,
                           min_green=5,
                           max_depart_delay=0)
-
     observation = env.reset()
     done = False
 
     while not done:
         observation, reward, done, _ = env.step(find_best_action(observation))
+
+
+if __name__ == '__main__':
+    env = SumoEnvironment(net_file='nets/single/single.net.xml',
+                          route_file='nets/single/randomTrips.rou.xml',
+                          additional_file='nets/single/single.det.xml',
+                          out_csv_name='a2c',
+                          single_agent=True,
+                          use_gui=True,
+                          num_seconds=5000,
+                          min_green=5,
+                          max_depart_delay=0)
+    model = PPO("MlpPolicy", env, verbose=1, tensorboard_log="./ppo_tensorboard/")
+    model.learn(total_timesteps=3000, tb_log_name="first_run")
+
+    observation = env.reset()[1]
+    done = False
+
+    while not done:
+        action, _states = model.predict(observation)
+        observation, reward, done, _ = env.step(action)
+    #     observation, reward, done, _ = env.step(find_best_action(observation))
 
