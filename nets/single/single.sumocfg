@@ -3,8 +3,8 @@
 <configuration>
     <input>
         <net-file value="single.net.xml"/>
-        <route-files value="single.rou.xml"/>
-        <additional-files value="single.det.xml"/>
+        <route-files value="single_test.rou.xml"/>
+        <additional-files value="single_test.det.xml"/>
     </input>
 	<time>
         <begin value="0"/>

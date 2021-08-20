@@ -33,7 +33,7 @@ def find_best_action(observation):
 
 def simple_environment():
     env = SumoEnvironment(net_file='nets/single/single.net.xml',
-                          route_file='nets/single/randomTrips.rou.xml',
+                          route_file='nets/single/random.rou.xml',
                           additional_file='nets/single/single.det.xml',
                           out_csv_name='a2c',
                           single_agent=True,
@@ -49,25 +49,25 @@ def simple_environment():
 
 
 if __name__ == '__main__':
-    env = SumoEnvironment(net_file='nets/single/single.net.xml',
-                          route_file='nets/single/randomTrips.rou.xml',
+    sumo_env = SumoEnvironment(net_file='nets/single/single.net.xml',
+                          route_file='nets/single/single_test.rou.xml',
                           additional_file='nets/single/single.det.xml',
                           out_csv_name='a2c',
                           single_agent=True,
                           use_gui=False,
-                          num_seconds=5000,
+                          num_seconds=4000,
                           min_green=5,
                           max_depart_delay=0)
-    env = Monitor(env)
+    env = Monitor(sumo_env)
     env = DummyVecEnv([lambda: env])
     env = VecNormalize(env, norm_obs=True) #, norm_reward=True)
     model = PPO("MlpPolicy", env, verbose=1, tensorboard_log="./ppo_tensorboard/")
-    model.learn(total_timesteps=2000, tb_log_name="first_run")
-
+    model.learn(total_timesteps=20000, tb_log_name="first_run")
+    model.save('./model')
+    sumo_env.use_gui = True
     observation = env.reset()
     done = False
-
+    input("Press enter to continue ")
     while not done:
         action, _states = model.predict(observation)
         observation, reward, done, _ = env.step(action)
-    env.close()
