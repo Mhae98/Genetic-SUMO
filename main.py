@@ -2,7 +2,7 @@ import os
 import sys
 import random
 
-from stable_baselines3.common.vec_env import DummyVecEnv
+from stable_baselines3.common.vec_env import DummyVecEnv, VecNormalize
 
 if 'SUMO_HOME' in os.environ:
     tools = os.path.join(os.environ['SUMO_HOME'], 'tools')
@@ -11,7 +11,7 @@ else:
     sys.exit("Please declare the environment variable 'SUMO_HOME'")
 from sumo_rl import SumoEnvironment
 from stable_baselines3 import PPO
-from stable_baselines3.common.env_util import make_vec_env
+from stable_baselines3.common.monitor import Monitor
 
 
 def find_best_action(observation):
@@ -58,9 +58,11 @@ if __name__ == '__main__':
                           num_seconds=5000,
                           min_green=5,
                           max_depart_delay=0)
+    env = Monitor(env)
     env = DummyVecEnv([lambda: env])
+    env = VecNormalize(env, norm_obs=True) #, norm_reward=True)
     model = PPO("MlpPolicy", env, verbose=1, tensorboard_log="./ppo_tensorboard/")
-    model.learn(total_timesteps=3000, tb_log_name="first_run")
+    model.learn(total_timesteps=2000, tb_log_name="first_run")
 
     observation = env.reset()
     done = False
@@ -68,4 +70,4 @@ if __name__ == '__main__':
     while not done:
         action, _states = model.predict(observation)
         observation, reward, done, _ = env.step(action)
-
+    env.close()
