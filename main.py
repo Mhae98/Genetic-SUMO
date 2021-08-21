@@ -48,22 +48,14 @@ def simple_environment():
         observation, reward, done, _ = env.step(find_best_action(observation))
 
 
-if __name__ == '__main__':
-    sumo_env = SumoEnvironment(net_file='nets/single/single.net.xml',
-                          route_file='nets/single/single_test.rou.xml',
-                          additional_file='nets/single/single.det.xml',
-                          out_csv_name='a2c',
-                          single_agent=True,
-                          use_gui=False,
-                          num_seconds=4000,
-                          min_green=5,
-                          max_depart_delay=0)
-    env = Monitor(sumo_env)
-    env = DummyVecEnv([lambda: env])
-    env = VecNormalize(env, norm_obs=True) #, norm_reward=True)
+def train_model(env, name, timesteps):
     model = PPO("MlpPolicy", env, verbose=1, tensorboard_log="./ppo_tensorboard/")
-    model.learn(total_timesteps=20000, tb_log_name="first_run")
-    model.save('./model')
+    model.learn(total_timesteps=timesteps, tb_log_name=name)
+    model.save(f'models/model_{name}')
+    return model
+
+
+def predict_model(model, env):
     sumo_env.use_gui = True
     observation = env.reset()
     done = False
@@ -71,3 +63,30 @@ if __name__ == '__main__':
     while not done:
         action, _states = model.predict(observation)
         observation, reward, done, _ = env.step(action)
+
+
+def run_environment_with_ppo(env, name, timesteps=20000, train=True):
+    if train:
+        model = train_model(env, name, timesteps)
+    else:
+        model = PPO.load(f'models/model_{name}')
+    predict_model(model, env)
+
+
+if __name__ == '__main__':
+    name = "all_tracks"
+    sumo_env = SumoEnvironment(net_file='nets/single/single.net.xml',
+                               route_file=f'nets/single/{name}.rou.xml',
+                               additional_file='nets/single/single.det.xml',
+                               out_csv_name='a2c',
+                               single_agent=True,
+                               use_gui=False,
+                               num_seconds=3600,
+                               min_green=5,
+                               max_depart_delay=0)
+    env = Monitor(sumo_env)
+    env = DummyVecEnv([lambda: env])
+    env = VecNormalize(env, norm_obs=True)
+
+    run_environment_with_ppo(env, name, train=False)
+
