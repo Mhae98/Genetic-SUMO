@@ -28,6 +28,8 @@ def find_best_action(observation):
         min_map[action] = min([observation[index] for index in time_mapping[action]])
     vals = list(min_map.values())
     # choose the phase with the shortest time since activation
+
+    #wenn obs alle 0, aber noch warten, dann per random wählen, damit alle irgendwann wegkommen
     return vals.index(min(vals))
 
 
@@ -37,7 +39,7 @@ def simple_environment():
                           additional_file='nets/single/single.det.xml',
                           out_csv_name='a2c',
                           single_agent=True,
-                          use_gui=True,
+                          use_gui=False,
                           num_seconds=100000,
                           min_green=5,
                           max_depart_delay=0)
@@ -74,19 +76,19 @@ def run_environment_with_ppo(env, name, timesteps=20000, train=True):
 
 
 if __name__ == '__main__':
-    name = "all_tracks"
+    name = "day_time"
     sumo_env = SumoEnvironment(net_file='nets/single/single.net.xml',
                                route_file=f'nets/single/{name}.rou.xml',
                                additional_file='nets/single/single.det.xml',
-                               out_csv_name='a2c',
+                               out_csv_name='out/a2c',
                                single_agent=True,
                                use_gui=False,
-                               num_seconds=3600,
+                               num_seconds=4800,
                                min_green=5,
                                max_depart_delay=0)
     env = Monitor(sumo_env)
     env = DummyVecEnv([lambda: env])
     env = VecNormalize(env, norm_obs=True)
 
-    run_environment_with_ppo(env, name, train=False)
+    run_environment_with_ppo(env, name, train=False, timesteps=100000)
 
