@@ -42,7 +42,7 @@ def simple_environment():
                           use_gui=False,
                           num_seconds=100000,
                           min_green=5,
-                          max_depart_delay=0)
+                          max_depart_delay=10)
     observation = env.reset()
     done = False
 
@@ -85,10 +85,10 @@ if __name__ == '__main__':
                                use_gui=False,
                                num_seconds=4800,
                                min_green=5,
-                               max_depart_delay=0)
+                               max_depart_delay=12)
     env = Monitor(sumo_env)
     env = DummyVecEnv([lambda: env])
     env = VecNormalize(env, norm_obs=True)
 
-    run_environment_with_ppo(env, name, train=False, timesteps=100000)
+    run_environment_with_ppo(env, name, train=True, timesteps=200000)
 
