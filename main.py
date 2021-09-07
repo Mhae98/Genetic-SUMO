@@ -88,12 +88,12 @@ if __name__ == '__main__':
                                out_csv_name='out/a2c',
                                single_agent=True,
                                use_gui=False,
-                               num_seconds=4800,
+                               num_seconds=5000,
                                min_green=5,
-                               max_depart_delay=12)
+                               max_depart_delay=5000)
     env = Monitor(sumo_env)
     env = DummyVecEnv([lambda: env])
     env = VecNormalize(env, norm_obs=True)
 
-    run_environment_with_ppo(env, name, train=False, timesteps=2e6)
+    run_environment_with_ppo(env, name, train=True, timesteps=200000)
 
