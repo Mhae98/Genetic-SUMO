@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE routes [
-        <!ENTITY work "300">
-        <!ENTITY noon "250">
+        <!ENTITY work "500">
+        <!ENTITY noon "175">
         <!ENTITY night "100">
         ]>
 <!-- generated on 2021-07-13 09:56:58 by Eclipse SUMO netedit Version 1.9.2
@@ -61,28 +61,28 @@
     <flow id="morning_8" begin="0.00" end="1200.00" vehsPerHour="100" from="e_t" to="t_n"/>
     <flow id="morning_11" begin="0.00" end="1200.00" vehsPerHour="100" from="w_t" to="t_n"/>
 
-    <flow id="work_10" begin="1200.00" end="1800.00" vehsPerHour="300" from="w_t" to="t_e"/>
-    <flow id="work_11" begin="1200.00" end="1800.00" vehsPerHour="300" from="n_t" to="t_w"/>
-    <flow id="work_12" begin="1200.00" end="1800.00" vehsPerHour="300" from="s_t" to="t_e"/>
-    <flow id="work_13" begin="1200.00" end="1800.00" vehsPerHour="300" from="e_t" to="t_w"/>
+    <flow id="work_10" begin="1200.00" end="1800.00" vehsPerHour="500" from="w_t" to="t_e"/>
+    <flow id="work_11" begin="1200.00" end="1800.00" vehsPerHour="500" from="n_t" to="t_w"/>
+    <flow id="work_12" begin="1200.00" end="1800.00" vehsPerHour="500" from="s_t" to="t_e"/>
+    <flow id="work_13" begin="1200.00" end="1800.00" vehsPerHour="500" from="e_t" to="t_w"/>
 
-    <flow id="noon_1" begin="1800.00" end="3000.00" vehsPerHour="250" from="n_t" to="t_s"/>
-    <flow id="noon_2" begin="1800.00" end="3000.00" vehsPerHour="250" from="n_t" to="t_e"/>
-    <flow id="noon_3" begin="1800.00" end="3000.00" vehsPerHour="250" from="n_t" to="t_w"/>
-    <flow id="noon_4" begin="1800.00" end="3000.00" vehsPerHour="250" from="s_t" to="t_n"/>
-    <flow id="noon_5" begin="1800.00" end="3000.00" vehsPerHour="250" from="s_t" to="t_e"/>
-    <flow id="noon_6" begin="1800.00" end="3000.00" vehsPerHour="250" from="s_t" to="t_w"/>
-    <flow id="noon_7" begin="1800.00" end="3000.00" vehsPerHour="250" from="e_t" to="t_w"/>
-    <flow id="noon_8" begin="1800.00" end="3000.00" vehsPerHour="250" from="e_t" to="t_s"/>
-    <flow id="noon_9" begin="1800.00" end="3000.00" vehsPerHour="250" from="e_t" to="t_n"/>
-    <flow id="noon_10" begin="1800.00" end="3000.00" vehsPerHour="250" from="w_t" to="t_e"/>
-    <flow id="noon_11" begin="1800.00" end="3000.00" vehsPerHour="250" from="w_t" to="t_s"/>
-    <flow id="noon_12" begin="1800.00" end="3000.00" vehsPerHour="250" from="w_t" to="t_n"/>
+    <flow id="noon_1" begin="1800.00" end="3000.00" vehsPerHour="175" from="n_t" to="t_s"/>
+    <flow id="noon_2" begin="1800.00" end="3000.00" vehsPerHour="175" from="n_t" to="t_e"/>
+    <flow id="noon_3" begin="1800.00" end="3000.00" vehsPerHour="175" from="n_t" to="t_w"/>
+    <flow id="noon_4" begin="1800.00" end="3000.00" vehsPerHour="175" from="s_t" to="t_n"/>
+    <flow id="noon_5" begin="1800.00" end="3000.00" vehsPerHour="175" from="s_t" to="t_e"/>
+    <flow id="noon_6" begin="1800.00" end="3000.00" vehsPerHour="175" from="s_t" to="t_w"/>
+    <flow id="noon_7" begin="1800.00" end="3000.00" vehsPerHour="175" from="e_t" to="t_w"/>
+    <flow id="noon_8" begin="1800.00" end="3000.00" vehsPerHour="175" from="e_t" to="t_s"/>
+    <flow id="noon_9" begin="1800.00" end="3000.00" vehsPerHour="175" from="e_t" to="t_n"/>
+    <flow id="noon_10" begin="1800.00" end="3000.00" vehsPerHour="175" from="w_t" to="t_e"/>
+    <flow id="noon_11" begin="1800.00" end="3000.00" vehsPerHour="175" from="w_t" to="t_s"/>
+    <flow id="noon_12" begin="1800.00" end="3000.00" vehsPerHour="175" from="w_t" to="t_n"/>
 
-    <flow id="work_20" begin="3000.00" end="3400.00" vehsPerHour="300" from="e_t" to="t_w"/>
-    <flow id="work_21" begin="3000.00" end="3500.00" vehsPerHour="300" from="e_t" to="t_n"/>
-    <flow id="work_22" begin="3000.00" end="3600.00" vehsPerHour="300" from="e_t" to="t_s"/>
-    <flow id="work_23" begin="3000.00" end="3600.00" vehsPerHour="300" from="w_t" to="t_e"/>
+    <flow id="work_20" begin="3000.00" end="3400.00" vehsPerHour="500" from="e_t" to="t_w"/>
+    <flow id="work_21" begin="3000.00" end="3500.00" vehsPerHour="500" from="e_t" to="t_n"/>
+    <flow id="work_22" begin="3000.00" end="3600.00" vehsPerHour="500" from="e_t" to="t_s"/>
+    <flow id="work_23" begin="3000.00" end="3600.00" vehsPerHour="500" from="w_t" to="t_e"/>
 
     <flow id="night_1" begin="3600.00" end="4600.00" vehsPerHour="100" from="n_t" to="t_s"/>
     <flow id="night_2" begin="3600.00" end="4700.00" vehsPerHour="100" from="n_t" to="t_e"/>
