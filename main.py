@@ -32,6 +32,11 @@ def find_best_action(observation):
     #wenn obs alle 0, aber noch warten, dann per random wählen, damit alle irgendwann wegkommen
     return vals.index(min(vals))
 
+def action_static_daytime(observation):
+    standing_mapping = {0: [5, 9], 1: [7, 11], 2: [1, 13], 3: [3, 15]}
+    time_mapping = {0: [4, 8], 1: [6, 10], 2: [0, 12], 3: [2, 14]}
+
+    return 0
 
 def simple_environment():
     env = SumoEnvironment(net_file='nets/single/single.net.xml',
@@ -76,7 +81,7 @@ def run_environment_with_ppo(env, name, timesteps=20000, train=True):
 
 
 if __name__ == '__main__':
-    name = "day_time"
+    name = "day_time_high"
     sumo_env = SumoEnvironment(net_file='nets/single/single.net.xml',
                                route_file=f'nets/single/{name}.rou.xml',
                                additional_file='nets/single/single.det.xml',
@@ -90,5 +95,5 @@ if __name__ == '__main__':
     env = DummyVecEnv([lambda: env])
     env = VecNormalize(env, norm_obs=True)
 
-    run_environment_with_ppo(env, name, train=True, timesteps=200000)
+    run_environment_with_ppo(env, name, train=False, timesteps=2e6)
 
