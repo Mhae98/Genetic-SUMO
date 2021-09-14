@@ -21,16 +21,19 @@ def find_best_action(observation):
     time_mapping = {0: [4, 8], 1: [6, 10], 2: [0, 12], 3: [2, 14]}
     min_map = dict()
     for action in range(4):
-        # chooses phase if cars are standing on it
+        # chooses phase if cars are standing on corresponding detector
         if max([observation[index] for index in standing_mapping[action]]) == 1:
             return action
-        # finds to each action the shortest time since activation
+        # finds the shortest time since activation for each action
         min_map[action] = min([observation[index] for index in time_mapping[action]])
     vals = list(min_map.values())
     # choose the phase with the shortest time since activation
+    chosen = vals.index(min(vals))
+    # If Observations 0: Some cars may be waiting. Phase is chosen by random to ensure that all cars eventually pass
+    if min(vals) == 0:
+        chosen = random.randint(0, 3)
+    return chosen
 
-    #wenn obs alle 0, aber noch warten, dann per random wählen, damit alle irgendwann wegkommen
-    return vals.index(min(vals))
 
 def action_static_daytime(observation):
     standing_mapping = {0: [5, 9], 1: [7, 11], 2: [1, 13], 3: [3, 15]}
@@ -38,21 +41,27 @@ def action_static_daytime(observation):
 
     return 0
 
-def simple_environment():
+
+def simple_environment(name):
     env = SumoEnvironment(net_file='nets/single/single.net.xml',
-                          route_file='nets/single/random.rou.xml',
+                          route_file=f'nets/single/{name}.rou.xml',
                           additional_file='nets/single/single.det.xml',
-                          out_csv_name='a2c',
+                          out_csv_name='out/a2c',
                           single_agent=True,
                           use_gui=False,
-                          num_seconds=100000,
+                          num_seconds=5000,
                           min_green=5,
-                          max_depart_delay=10)
+                          max_depart_delay=5000)
     observation = env.reset()
     done = False
-
+    final_reward = 0
     while not done:
         observation, reward, done, _ = env.step(find_best_action(observation))
+        final_reward += reward
+    print(final_reward)
+    env.close()
+    return final_reward
+
 
 
 def train_model(env, name, timesteps):
@@ -81,6 +90,15 @@ def run_environment_with_ppo(env, name, timesteps=20000, train=True):
 
 
 if __name__ == '__main__':
+    rep = 1000
+    rew = 0
+    for _ in range(rep):
+        rew += simple_environment('day_time')
+
+    print("Durchschnittlich: ")
+    print(rew/rep)
+    """
+    
     name = "day_time_high"
     sumo_env = SumoEnvironment(net_file='nets/single/single.net.xml',
                                route_file=f'nets/single/{name}.rou.xml',
@@ -95,5 +113,6 @@ if __name__ == '__main__':
     env = DummyVecEnv([lambda: env])
     env = VecNormalize(env, norm_obs=True)
 
-    run_environment_with_ppo(env, name, train=True, timesteps=200000)
+    run_environment_with_ppo(env, name, train=False, timesteps=200000)
+    """
 
