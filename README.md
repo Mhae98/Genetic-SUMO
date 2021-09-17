@@ -21,7 +21,7 @@ source ~/.bashrc
 #### Windows
 
 Install SUMO Environment as explained [here.](https://sumo.dlr.de/docs/Installing/index.html) 
-(Note: some of the tools below require the SUMO_HOME variable to be set, most of the installers should install them correctly, if not try [this]([here.](https://sumo.dlr.de/docs/Installing/index.html)))
+(Note: some of the tools below require the SUMO_HOME variable to be set, most of the installers should install them correctly, if not try this [here.](https://sumo.dlr.de/docs/Installing/index.html))
 
 ## Install Stable-Baselines
 
