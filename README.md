@@ -25,7 +25,7 @@ Install SUMO Environment as explained [here.](https://sumo.dlr.de/docs/Installin
 
 ## Install Stable-Baselines
 
-Install Stable baselines with pip `pip install pip install stable-baselines3[extra]`or  via `pip install -r requirements.tx`
+Install Stable baselines with pip `pip install stable-baselines3[extra]`or  via `pip install -r requirements.txt`
 
 
 ## Install SUMO-RL
