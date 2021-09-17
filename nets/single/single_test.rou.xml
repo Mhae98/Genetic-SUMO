@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2021-08-20 15:26:31 by Eclipse SUMO netedit Version 1.10.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <sumo-net-file value="/home/martin/PycharmProjects/Genetic-SUMO/nets/single/single.net.xml"/>
+    </input>
+
+    <output>
+        <output-file value="/home/martin/PycharmProjects/Genetic-SUMO/nets/single/single.net.xml"/>
+    </output>
+
+    <processing>
+        <geometry.min-radius.fix.railways value="false"/>
+        <geometry.max-grade.fix value="false"/>
+        <offset.disable-normalization value="true"/>
+        <lefthand value="false"/>
+    </processing>
+
+    <junctions>
+        <no-turnarounds value="true"/>
+        <junctions.corner-detail value="0"/>
+        <junctions.limit-turn-speed value="-1"/>
+        <rectangular-lane-cut value="false"/>
+    </junctions>
+
+    <pedestrian>
+        <walkingareas value="false"/>
+    </pedestrian>
+
+    <netedit>
+        <additional-files value="/home/martin/PycharmProjects/Genetic-SUMO/nets/single/single_test.det.xml"/>
+        <route-files value="/home/martin/PycharmProjects/Genetic-SUMO/nets/single/single_test.rou.xml"/>
+    </netedit>
+
+    <report>
+        <aggregate-warnings value="5"/>
+    </report>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <flow id="flow_0" begin="0.00" end="1000.00" number="400">
+        <route edges="w_t t_e" color="cyan"/>
+    </flow>
+    <flow id="flow_1" begin="1000.00" end="2000.00" number="400">
+        <route edges="n_t t_s" color="cyan"/>
+    </flow>
+    <flow id="flow_2" begin="2000.00" end="3000.00" number="400">
+        <route edges="e_t t_w" color="cyan"/>
+    </flow>
+    <flow id="flow_3" begin="3000.00" end="4000.00" number="400">
+        <route edges="s_t t_n" color="cyan"/>
+    </flow>
+</routes>
