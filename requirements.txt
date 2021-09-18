@@ -1,1 +1,2 @@
 stable_baselines3[extra]
+fire

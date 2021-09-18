@@ -25,7 +25,7 @@ Install SUMO Environment as explained [here.](https://sumo.dlr.de/docs/Installin
 
 ## Install Stable-Baselines
 
-Install Stable baselines with pip `pip install stable-baselines3[extra]`or  via `pip install -r requirements.txt`
+Install Stable baselines with pip `pip install stable-baselines3[extra] fire`or via `pip install -r requirements.txt`
 
 
 ## Install SUMO-RL
@@ -46,6 +46,18 @@ Now you can start f. e. ppo training with
 python main.py
 ```
 
+this starts the default model "day_time".
+To train a specific model use
+
+```
+python main.py --name={your_name} --train=True
+```
+
+and afterwards to run a specific model
+
+```
+python main.py --name={your_name} --train=False
+```
 
 ### Netconfig
 Use sumo-gui with our net config f. e.

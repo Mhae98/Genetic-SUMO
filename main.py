@@ -1,6 +1,7 @@
 import os
 import sys
 import random
+import fire
 
 from stable_baselines3.common.vec_env import DummyVecEnv, VecNormalize
 
@@ -88,8 +89,8 @@ def run_environment_with_ppo(env, name, timesteps=20000, train=True):
     predict_model(model, env)
 
 
-if __name__ == '__main__':
-    name = "day_time"
+def run_sumo_rl(name="day_time", train=False):
+    global sumo_env
     sumo_env = SumoEnvironment(net_file='nets/single/single.net.xml',
                                route_file=f'nets/single/{name}.rou.xml',
                                additional_file='nets/single/single.det.xml',
@@ -103,5 +104,8 @@ if __name__ == '__main__':
     env = DummyVecEnv([lambda: env])
     env = VecNormalize(env, norm_obs=True)
 
-    run_environment_with_ppo(env, name, train=False, timesteps=200000)
+    run_environment_with_ppo(env, name, train=train, timesteps=200000)
 
+
+if __name__ == '__main__':
+    fire.Fire(run_sumo_rl)
