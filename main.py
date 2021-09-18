@@ -63,7 +63,6 @@ def simple_environment(name):
     return final_reward
 
 
-
 def train_model(env, name, timesteps):
     model = PPO("MlpPolicy", env, verbose=1, tensorboard_log="./ppo_tensorboard/")
     model.learn(total_timesteps=timesteps, tb_log_name=name)
@@ -90,16 +89,7 @@ def run_environment_with_ppo(env, name, timesteps=20000, train=True):
 
 
 if __name__ == '__main__':
-    rep = 1000
-    rew = 0
-    for _ in range(rep):
-        rew += simple_environment('day_time')
-
-    print("Durchschnittlich: ")
-    print(rew/rep)
-    """
-    
-    name = "day_time_high"
+    name = "day_time"
     sumo_env = SumoEnvironment(net_file='nets/single/single.net.xml',
                                route_file=f'nets/single/{name}.rou.xml',
                                additional_file='nets/single/single.det.xml',
@@ -114,5 +104,4 @@ if __name__ == '__main__':
     env = VecNormalize(env, norm_obs=True)
 
     run_environment_with_ppo(env, name, train=False, timesteps=200000)
-    """
 

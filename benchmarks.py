@@ -115,12 +115,12 @@ def benchmark_random(env_name, episodes=10):
                           additional_file='nets/single/single.det.xml',
                           out_csv_name='out/a2c',
                           single_agent=True,
-                          use_gui=False,
+                          use_gui=True,
                           num_seconds=5000,
                           min_green=5,
                           max_depart_delay=5000)
-    log_dir = os.path.join('Benchmark', 'Baseline_random')
-    writer = tf.compat.v1.summary.FileWriter(log_dir)
+    # log_dir = os.path.join('Benchmark', 'Baseline_random')
+    # writer = tf.compat.v1.summary.FileWriter(log_dir)
     steps = 0
     done = False
     env.reset()
@@ -142,15 +142,15 @@ def benchmark_random(env_name, episodes=10):
             summary.value.add(tag='rewards/Episode_reward', simple_value=episode_rewards[episode])
             summary.value.add(tag='Episode length', simple_value=steps)
             print(f'Episode: {episode}\tReward: {episode_rewards[episode]}')
-            writer.add_summary(summary, global_step=episode)
-            writer.flush()
+            # writer.add_summary(summary, global_step=episode)
+            # writer.flush()
             rewards = []
             steps = 0
             episode += 1
     summary = tf.compat.v1.Summary()
     summary.value.add(tag='rewards/Average_reward', simple_value=sum(episode_rewards)/episode)
-    writer.add_summary(summary, global_step=0)
-    writer.close()
+    # writer.add_summary(summary, global_step=0)
+    # writer.close()
     env.close()
 
 
@@ -220,7 +220,7 @@ def benchmark_own_policy(name, episodes=10):
 
 if __name__ == '__main__':
     name = "day_time"
-    benchmark_random(name, 1000)
+    benchmark_random(name, 1)
     # episodes = 1000
     # benchmark_times = [(5, 5, 5, 5), (10, 10, 10, 10), (15, 15, 15, 15), (20, 20, 20, 20), (25, 25, 25, 25),
     #                    (30, 30, 30, 30), (10, 10, 10, 5), (20, 20, 20, 10)]

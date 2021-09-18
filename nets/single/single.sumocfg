@@ -3,8 +3,8 @@
 <configuration>
     <input>
         <net-file value="single.net.xml"/>
-        <route-files value="single_test.rou.xml"/>
-        <additional-files value="single_test.det.xml"/>
+	    <route-files value="day_time.rou.xml"/>
+        <additional-files value="single.det.xml"/>
     </input>
 	<time>
         <begin value="0"/>
